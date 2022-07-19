@@ -39,7 +39,7 @@ public class PlayerTest {
 
         Player player = new Player("Санек");
         player.installGame(game4);
-        player.installGame(game2);
+        player.installGame(game);
         player.installGame(game3);
 
         player.play(game4, 3);
