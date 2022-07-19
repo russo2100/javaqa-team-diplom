@@ -5,10 +5,16 @@ import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
 
+    GameStore store = new GameStore();
+    Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+    Game game1 = store.publishGame("Arche Age","MMORPG");
+    Game game2 = store.publishGame("Аллоды", "Аркады");
+    Game game3 = store.publishGame("Lineage 2", "MMORPG");
+    Game game4 = store.publishGame("Mortal Kombat", "Fights");
+
+
     @Test
     public void shouldSumGenreIfOneGame() {
-        GameStore store = new GameStore();
-        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
         player.installGame(game);
@@ -19,5 +25,32 @@ public class PlayerTest {
         assertEquals(expected, actual);
     }
 
-    // другие ваши тесты
+    // Новые тесты
+    @Test
+    public void shouldExpIfGameNotInstall() {
+        Player player = new Player("Русик");
+        assertThrows(RuntimeException.class, () ->{
+            player.play(game3,5);
+        });
+    }
+
+    @Test
+    public void shouldSumGenreIfGameReplay() {
+
+        Player player = new Player("Санек");
+        player.installGame(game4);
+        player.installGame(game2);
+        player.installGame(game3);
+
+        player.play(game4, 3);
+        player.play(game4, 3);
+
+
+        int expected = 6;
+        int actual = player.sumGenre("Fights");
+
+        assertEquals(expected, actual);
+    }
+
+
 }

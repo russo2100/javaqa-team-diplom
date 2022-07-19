@@ -25,11 +25,11 @@ public class Player {
         playedTime.put(game, 0);
     }
 
-    /** игрок играет в игру game на протяжении hours часов
+    /** Игрок играет в игру game на протяжении hours часов
     об этом нужно сообщить объекту-каталогу игр, откуда была установлена игра
     также надо обновить значения в мапе игрока, добавив проигранное количество часов
     возвращает суммарное количество часов, проигранное в эту игру.
-    если игра не была установлена, то надо выкидывать RuntimeException */
+    Если игра не была установлена, то надо выкидывать RuntimeException */
     public int play(Game game, int hours) {
         game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {

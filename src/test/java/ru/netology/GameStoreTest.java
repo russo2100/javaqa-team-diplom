@@ -11,7 +11,7 @@ public class GameStoreTest {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
-        assertTrue(store.containsGame(game));
+        assertEquals(true, store.containsGame(game));
     }
 
     // другие ваши тесты
