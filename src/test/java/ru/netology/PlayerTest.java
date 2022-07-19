@@ -11,6 +11,7 @@ public class PlayerTest {
     Game game2 = store.publishGame("Аллоды", "Аркады");
     Game game3 = store.publishGame("Lineage 2", "MMORPG");
     Game game4 = store.publishGame("Mortal Kombat", "Fights");
+    Game game5 = store.publishGame("World of Tanks", "Simulator");
 
 
     @Test
