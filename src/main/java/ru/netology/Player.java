@@ -30,12 +30,11 @@ public class Player {
     также надо обновить значения в мапе игрока, добавив проигранное количество часов
     возвращает суммарное количество часов, проигранное в эту игру.
     Если игра не была установлена, то надо выкидывать RuntimeException */
-    public int play(Game game, int hours) {
-        game.getStore().addPlayTime(name, hours);
-        if (playedTime.containsKey(game)) {
+    public int play(Game game, int hours) throws RuntimeException {
+        if (!playedTime.containsKey(game)){
+            throw new RuntimeException("This game: " + game.getTitle() + " is not installed");
+        } else {game.getStore().addPlayTime(name, hours);
             playedTime.put(game, playedTime.get(game)+hours);
-        } else {
-            playedTime.put(game, hours);
         }
         return playedTime.get(game);
     }
