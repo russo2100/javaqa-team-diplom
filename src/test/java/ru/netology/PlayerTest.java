@@ -54,4 +54,36 @@ public class PlayerTest {
     }
 
 
+    @Test
+    public void addDoubleGame() {
+        Player player = new Player("Петя");
+        player.installGame(game);
+        player.play(game, 1);
+        player.installGame(game);
+
+        int expected = 1;
+        int actual = player.sumGenre(game.getGenre());
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void mostPlayerByGenreGamePlayed() {
+        Player player = new Player("Жорж");
+        player.installGame(game4);
+        player.installGame(game3);
+        player.installGame(game1);
+
+        player.play(game4, 6);
+        player.play(game5, 5);
+        player.play(game2, 3);
+
+
+        Game expected = game4;
+        Game actual = player.mostPlayerByGenre("Fights");
+
+        assertEquals(expected, actual);
+    }
+
+
 }
