@@ -71,8 +71,8 @@ public class PlayerTest {
     public void mostPlayerByGenreGamePlayed() {
         Player player = new Player("Жорж");
         player.installGame(game4);
-        player.installGame(game3);
-        player.installGame(game1);
+        player.installGame(game5);
+        player.installGame(game2);
 
         player.play(game4, 6);
         player.play(game5, 5);
